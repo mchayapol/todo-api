@@ -1,8 +1,6 @@
 var express = require('express');
 var router = express.Router();
 var Task = require('../models/task');
-const mongoose = require('mongoose');
-mongoose.connect('CONNECTION_STRING', { useNewUrlParser: true, useUnifiedTopology: true });
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
@@ -19,18 +17,11 @@ router.get('/task', function (req, res, next) {
         status: 'Success',
         data: tasks
       })
-
     }
-
   });
-  // res.json([
-  //   { id: 1, name: 'Get up' },
-  //   { id: 2, name: 'Eat' },
-  //   { id: 3, name: 'Go to school' },
-  //   { id: 4, name: 'Study' },
-  //   { id: 5, name: 'Go home' },
-  //   { id: 6, name: 'Sleep' }
-  // ]);
 });
 
+router.post('/task', function(req, res, next){
+  console.log(req);
+});
 module.exports = router;
